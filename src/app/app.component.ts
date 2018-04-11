@@ -21,8 +21,6 @@ export class AppComponent {
     this.items$ = this.firebase.list<ShopingItem>('items').snapshotChanges().map(changes => {
       return changes.map(c => ({ $key: c.payload.key, ...c.payload.val() }));
     });
-
-    this.items$.subscribe(console.log);
   }
 
   AddNewItem() {
@@ -33,9 +31,7 @@ export class AppComponent {
   selectedItem(item) {
     item.checked === true ? item.checked = false : item.checked = true;
     let key = item.$key;
-    console.log(item);
     delete item.$key;
-    console.log(item);
     this.firebase.list('items').update(key, item);
   }
 }
