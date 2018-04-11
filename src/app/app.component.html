@@ -1,7 +1,22 @@
+<mat-toolbar>
+    <span>Mühle ShoppingList</span>
+
+    <!-- This fills the remaining space of the current row -->
+    <span class="example-fill-remaining-space"></span>
+
+    <span>Prod</span></mat-toolbar>
+
 <h1>ShoppingList</h1>
 
-<ul>
-  <li *ngFor="let item of items | async">
-     {{ item | json }}
-  </li>
-</ul>
+<form class="item-form">
+    <mat-form-field class="input-width">
+        <input matInput placeholder="denk dra was de andre wot!" [(ngModel)]="newItem" name="newitem">
+    </mat-form-field>
+    <button mat-button (click)="AddNewItem()">Add</button>
+</form>
+
+<mat-selection-list #itemList class="list">
+    <mat-list-option *ngFor="let item of items$ | async" (click)="selectedItem(item)" [selected]="item.checked">
+        {{ item.value }}
+    </mat-list-option>
+</mat-selection-list>

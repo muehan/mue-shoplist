@@ -1,8 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AngularFireModule } from 'angularfire2';
-
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabase } from 'angularfire2/database';
+
+import {
+  MatButtonModule,
+  MatToolbarModule,
+  MatListModule,
+  MatMenuModule,
+  MatIconModule,
+  MatCardModule
+} from '@angular/material';
+
+import { MatInputModule } from '@angular/material/input';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDYm_INLLwSPRQmZ2jEsDdSLRX6o2vNU1g',
@@ -18,10 +32,28 @@ const firebaseConfig = {
     AppComponent
   ],
   imports: [
+    MatButtonModule,
+    MatToolbarModule,
+    MatListModule,
+    MatMenuModule,
+    MatIconModule,
+    MatCardModule,
+    MatInputModule,
     BrowserModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    BrowserAnimationsModule,
+    FormsModule,
+    AngularFireModule.initializeApp(firebaseConfig),
   ],
-  providers: [],
+  exports: [
+    MatButtonModule,
+    MatToolbarModule,
+    MatListModule,
+    MatMenuModule,
+    MatIconModule,
+    MatCardModule,
+    MatInputModule,
+  ],
+  providers: [AngularFireDatabase],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
