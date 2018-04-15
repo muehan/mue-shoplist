@@ -1,22 +1,25 @@
-<mat-toolbar>
+<mat-toolbar style="background-color: blanchedalmond">
     <span>Mühle ShoppingList</span>
 
     <!-- This fills the remaining space of the current row -->
     <span class="example-fill-remaining-space"></span>
 
-    <span>Prod</span></mat-toolbar>
+    <span>Prod</span>
+</mat-toolbar>
+<div style="width: 80%; margin: 0 auto;">
 
-<h1>ShoppingList</h1>
+    <h1>ShoppingList</h1>
 
-<form class="item-form">
-    <mat-form-field class="input-width">
-        <input matInput placeholder="denk dra was de andre wot!" [(ngModel)]="newItem" name="newitem">
-    </mat-form-field>
-    <button mat-button (click)="AddNewItem()">Add</button>
-</form>
+    <form class="item-form">
+        <mat-form-field class="input-width">
+            <input matInput placeholder="denk dra was de andre wot!" [(ngModel)]="newItem" name="newitem">
+        </mat-form-field>
+        <button type="submit" style="float: right;" mat-fab (click)="AddNewItem()">Add</button>
+    </form>
 
-<mat-selection-list #itemList class="list">
-    <mat-list-option *ngFor="let item of items$ | async" (click)="selectedItem(item)" [selected]="item.checked">
-        {{ item.value }}
-    </mat-list-option>
-</mat-selection-list>
+    <mat-selection-list #itemList class="list">
+        <mat-list-option *ngFor="let item of items$ | async" (click)="selectedItem(item)" [selected]="item.checked">
+            {{ item.value }}
+        </mat-list-option>
+    </mat-selection-list>
+</div>
