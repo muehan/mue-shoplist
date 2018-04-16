@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { AppComponent } from './app.component';
+import { MueAddItemDialogComponent } from './dialog';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -18,6 +20,8 @@ import {
 
 import { MatInputModule } from '@angular/material/input';
 
+import { MatDialogModule } from '@angular/material/dialog';
+
 const firebaseConfig = {
   apiKey: 'AIzaSyDYm_INLLwSPRQmZ2jEsDdSLRX6o2vNU1g',
   authDomain: 'mue-shoplist.firebaseapp.com',
@@ -29,7 +33,8 @@ const firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MueAddItemDialogComponent,
   ],
   imports: [
     MatButtonModule,
@@ -39,6 +44,7 @@ const firebaseConfig = {
     MatIconModule,
     MatCardModule,
     MatInputModule,
+    MatDialogModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -52,6 +58,9 @@ const firebaseConfig = {
     MatIconModule,
     MatCardModule,
     MatInputModule,
+  ],
+  entryComponents: [
+    MueAddItemDialogComponent,
   ],
   providers: [AngularFireDatabase],
   bootstrap: [AppComponent]

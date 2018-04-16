@@ -117,12 +117,14 @@
     "directive-selector": [
       true,
       "attribute",
+      "mue",
       "app",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
+      "mue",
       "app",
       "kebab-case"
     ],

@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { ShopingItem } from './shoping-item';
+import { MueAddItemDialogComponent } from './dialog';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
@@ -13,9 +16,10 @@ export class AppComponent {
 
   public items$: Observable<ShopingItem[]>;
   public item$: Observable<ShopingItem>;
-  public newItem: string;
 
-  constructor(private firebase: AngularFireDatabase) {
+  constructor(
+    private firebase: AngularFireDatabase,
+    public dialog: MatDialog) {
     // this.items$ = this.firebase.list<ShopingItem>('items').valueChanges();
 
     this.items$ = this.firebase.list<ShopingItem>('items').snapshotChanges().map(changes => {
@@ -24,8 +28,9 @@ export class AppComponent {
   }
 
   AddNewItem() {
-    this.firebase.list('items').push({ value: this.newItem, checked: false });
-    this.newItem = '';
+      let dialogRef = this.dialog.open(MueAddItemDialogComponent);
+      dialogRef.afterClosed().subscribe(result => {
+      });
   }
 
   selectedItem(item) {
