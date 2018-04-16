@@ -33,6 +33,10 @@ export class AppComponent {
       });
   }
 
+  removeChecked() {
+    this.items$.map(x => x.forEach(item => this.firebase.list('items').remove(item.$key)));
+  }
+
   selectedItem(item) {
     item.checked === true ? item.checked = false : item.checked = true;
     let key = item.$key;

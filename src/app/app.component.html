@@ -1,19 +1,17 @@
 <mat-toolbar class="app-toolbar">
-    <span>Mühle ShoppingList</span>
+    <span>Ichaufslischte</span>
 
     <!-- This fills the remaining space of the current row -->
     <span class="example-fill-remaining-space"></span>
 
-    <button type="button" class="clear-button" mat-raised-button>clear</button>
+    <button type="button" class="clear-button" (click)="removeChecked()" mat-raised-button>clear</button>
 </mat-toolbar>
-<div style="width: 80%; margin: 0 auto;">
-
-    <h1>ShoppingList</h1>
+<div style="width: 95%; margin: 0 auto;">
 
     <button type="button" class="add-button" mat-fab (click)="AddNewItem()">Add</button>
 
     <mat-selection-list #itemList class="list">
-        <mat-list-option *ngFor="let item of items$ | async" (click)="selectedItem(item)" [selected]="item.checked">
+        <mat-list-option class="list-item" *ngFor="let item of items$ | async" (click)="selectedItem(item)" [selected]="item.checked">
             {{ item.value }}
         </mat-list-option>
     </mat-selection-list>

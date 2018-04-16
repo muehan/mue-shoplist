@@ -8,18 +8,18 @@
     background-color: blanchedalmond;
 }
 
-.example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-}
-
 .add-button {
     position: fixed;
     right: 20px;
     bottom: 20px;
+    z-index: 1000;
 }
 
 .list {
-    width: 80%;
+    padding-left: 0;
+    width: 95%;
+}
+
+.list-item {
+    padding-left: 0;
 }
