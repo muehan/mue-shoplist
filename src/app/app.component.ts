@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
@@ -12,29 +12,32 @@ import { MueAddItemDialogComponent } from './dialog';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   public items$: Observable<ShopingItem[]>;
   public item$: Observable<ShopingItem>;
+  public itemArray: Array<ShopingItem>;
 
   constructor(
     private firebase: AngularFireDatabase,
-    public dialog: MatDialog) {
-    // this.items$ = this.firebase.list<ShopingItem>('items').valueChanges();
+    public dialog: MatDialog) { }
 
+  ngOnInit(): void {
     this.items$ = this.firebase.list<ShopingItem>('items').snapshotChanges().map(changes => {
       return changes.map(c => ({ $key: c.payload.key, ...c.payload.val() }));
     });
+
+    this.items$.subscribe(x => this.itemArray = x);
   }
 
   AddNewItem() {
-      let dialogRef = this.dialog.open(MueAddItemDialogComponent);
-      dialogRef.afterClosed().subscribe(result => {
-      });
+    let dialogRef = this.dialog.open(MueAddItemDialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 
   removeChecked() {
-    this.items$.map(x => x.forEach(item => this.firebase.list('items').remove(item.$key)));
+    this.itemArray.filter(x => x.checked).forEach(item => this.firebase.list('items').remove(item.$key));
   }
 
   selectedItem(item) {
