@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { MueAddItemDialogComponent } from './dialog';
+import { MueLoginComponent } from './login';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -35,6 +36,7 @@ const firebaseConfig = {
   declarations: [
     AppComponent,
     MueAddItemDialogComponent,
+    MueLoginComponent,
   ],
   imports: [
     MatButtonModule,
