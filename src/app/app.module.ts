@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -21,10 +22,11 @@ import {
   MatIconModule,
   MatCardModule
 } from '@angular/material';
-
 import { MatInputModule } from '@angular/material/input';
-
 import { MatDialogModule } from '@angular/material/dialog';
+
+import { appRoutes } from './app.routes';
+
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDYm_INLLwSPRQmZ2jEsDdSLRX6o2vNU1g',
@@ -55,6 +57,7 @@ const firebaseConfig = {
     BrowserAnimationsModule,
     FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
+    RouterModule.forRoot(appRoutes),
   ],
   exports: [
     MatButtonModule,
