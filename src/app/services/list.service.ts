@@ -23,6 +23,10 @@ export class ListService {
     return this.items$;
   }
 
+  public Add(newItem: Partial<ShoppingItem>): any {
+    this.firebase.list('items').push(newItem);
+  }
+
   public Update(item: ShoppingItem) {
     let key = item.$key;
     delete item.$key;

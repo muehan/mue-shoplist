@@ -13,17 +13,12 @@ export class MueAddItemDialogComponent implements OnInit {
     public newItem: string;
 
     constructor(
-        public dialogRef: MatDialogRef<MueAddItemDialogComponent>,
-        private firebase: AngularFireDatabase
+        public dialogRef: MatDialogRef<MueAddItemDialogComponent>
     ) { }
 
     ngOnInit() { }
 
-    AddNewItem() {
-
-      this.firebase.list('items').push({ value: this.newItem, checked: false });
-      this.newItem = '';
-
+    public close() {
       this.dialogRef.close();
     }
 }

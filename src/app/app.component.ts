@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
-import { MueAddItemDialogComponent } from './dialog';
+
 import { ListService } from './services';
 
 @Component({
@@ -15,16 +15,9 @@ import { ListService } from './services';
 export class AppComponent implements OnInit {
 
   constructor(
-    public dialog: MatDialog,
     private listService: ListService) { }
 
   ngOnInit(): void { }
-
-  AddNewItem() {
-    let dialogRef = this.dialog.open(MueAddItemDialogComponent);
-    dialogRef.afterClosed().subscribe(result => {
-    });
-  }
 
   removeChecked() {
     this.listService.RemoveCheckedItems();
