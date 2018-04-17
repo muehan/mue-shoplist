@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MueAddItemDialogComponent } from '../dialog';
 import { ListService } from '../services';
+import { Observable } from 'rxjs/Observable';
+import { ShoppingItem } from '../models';
 
 @Component({
   selector: 'mue-list',
@@ -10,12 +12,15 @@ import { ListService } from '../services';
 })
 export class MueListComponent implements OnInit {
 
+  public items$: Observable<ShoppingItem[]>;
+
   constructor(
     public dialog: MatDialog,
     private listService: ListService
   ) { }
 
   ngOnInit() {
+    this.items$ = this.listService.GetAll();
   }
 
   AddNewItem() {

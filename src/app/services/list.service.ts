@@ -6,8 +6,8 @@ import { AngularFireDatabase } from 'angularfire2/database/database';
 @Injectable()
 export class ListService {
 
-  public items$: Observable<ShoppingItem[]>;
-  public itemArray: Array<ShoppingItem>;
+  private items$: Observable<ShoppingItem[]>;
+  private itemArray: Array<ShoppingItem>;
 
   constructor(
     private firebase: AngularFireDatabase,
