@@ -22,9 +22,4 @@ export class AppComponent implements OnInit {
   removeChecked() {
     this.listService.RemoveCheckedItems();
   }
-
-  selectedItem(item) {
-    item.checked === true ? item.checked = false : item.checked = true;
-    this.listService.Update(item);
-  }
 }

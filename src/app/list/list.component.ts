@@ -29,4 +29,9 @@ export class MueListComponent implements OnInit {
       this.listService.Add({ value: result, checked: false });
     });
   }
+
+  selectedItem(item) {
+    item.checked === true ? item.checked = false : item.checked = true;
+    this.listService.Update(item);
+  }
 }
