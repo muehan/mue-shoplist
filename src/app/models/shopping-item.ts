@@ -1,4 +1,4 @@
-export interface ShopingItem {
+export interface ShoppingItem {
     $key: string;
     value: string;
     checked: boolean;

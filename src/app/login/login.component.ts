@@ -1,15 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'mue-login',
-    templateUrl: 'login.component.html',
-    styleUrls: [
-        'login.component.scss'
-    ]
+  selector: 'mue-login',
+  templateUrl: 'login.component.html',
+  styleUrls: [
+    'login.component.scss'
+  ]
 })
 
 export class MueLoginComponent implements OnInit {
-    constructor() { }
 
-    ngOnInit() { }
+  public mail: string;
+  public pw: string;
+
+  constructor() { }
+
+  ngOnInit() { }
+
+  login() {
+
+  }
 }

@@ -3,7 +3,6 @@ import { MatDialogRef } from '@angular/material';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
-    // tslint:disable-next-line:component-selector
     selector: 'mue-add-item-dialog',
     templateUrl: 'add-item-dialog.component.html',
     styleUrls: [ 'add-item-dialog.component.scss' ]

@@ -6,6 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { MueAddItemDialogComponent } from './dialog';
 import { MueLoginComponent } from './login';
+import { MueListComponent } from './list';
+
+import { ListService } from './services';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -37,6 +40,7 @@ const firebaseConfig = {
     AppComponent,
     MueAddItemDialogComponent,
     MueLoginComponent,
+    MueListComponent
   ],
   imports: [
     MatButtonModule,
@@ -64,7 +68,10 @@ const firebaseConfig = {
   entryComponents: [
     MueAddItemDialogComponent,
   ],
-  providers: [AngularFireDatabase],
+  providers: [
+    AngularFireDatabase,
+    ListService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
