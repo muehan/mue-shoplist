@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
@@ -10,9 +11,13 @@ export class AuthService {
   constructor(
     private firebaseAuth: AngularFireAuth,
     private firebase: AngularFireDatabase,
+    private router: Router,
   ) {
     this.firebaseAuth.authState.subscribe(user => {
       this.authState = user;
+      if (this.authState) {
+        this.router.navigate(['list']);
+      }
     });
   }
 

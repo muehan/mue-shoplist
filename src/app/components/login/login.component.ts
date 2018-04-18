@@ -45,6 +45,5 @@ export class MueLoginComponent implements OnInit {
       .catch((error) => {
         this.errorMessage = error;
       });
-
   }
 }
