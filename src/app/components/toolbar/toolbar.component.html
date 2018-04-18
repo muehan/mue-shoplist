@@ -1,8 +1,9 @@
 <mat-toolbar class="app-toolbar">
-  <span>Ichaufslischte</span>
+    <span [routerLink]="['list']">Ichaufslischte</span>
 
-  <!-- This fills the remaining space of the current row -->
-  <span class="example-fill-remaining-space"></span>
+    <!-- This fills the remaining space of the current row -->
+    <span class="example-fill-remaining-space"></span>
 
-  <button *ngIf="isAuthenticated" type="button" class="clear-button" (click)="removeChecked()" mat-raised-button>clear</button>
+    <button *ngIf="isAuthenticated" type="button" class="clear-button" (click)="removeChecked()" mat-raised-button>clear</button>
+    <button *ngIf="isAuthenticated" type="button" class="clear-button" [routerLink]="['profile']" mat-raised-button>profil</button>
 </mat-toolbar>

@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { MueLoginComponent } from './components';
 import { MueListComponent } from './components';
 import { MueToolbarComponent } from './components';
+import { MueProfileComponent } from './components';
 
 import { ListService } from './services';
 import { AuthService } from './services';
@@ -47,7 +48,8 @@ const firebaseConfig = {
     MueAddItemDialogComponent,
     MueLoginComponent,
     MueListComponent,
-    MueToolbarComponent
+    MueToolbarComponent,
+    MueProfileComponent
   ],
   imports: [
     MatButtonModule,
