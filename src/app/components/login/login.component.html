@@ -1,6 +1,6 @@
 <form class="login-form" (ngSubmit)="login()">
   <mat-form-field class="input-width">
-    <input type="text" matInput placeholder="email" [(ngModel)]="mail" name="newitem">
+    <input type="text" matInput placeholder="email" [formControl]="mailFormControl" name="newitem">
   </mat-form-field>
   <mat-form-field class="input-width">
     <input type="password" matInput placeholder="password" [(ngModel)]="password" name="newitem">
