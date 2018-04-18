@@ -7,7 +7,7 @@ import { ListService } from '../../services';
   styleUrls: ['./toolbar.component.scss']
 })
 
-export class ToolbarComponent {
+export class MueToolbarComponent {
 
   constructor(
     private listService: ListService

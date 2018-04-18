@@ -4,10 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppComponent } from './app.component';
 import { MueAddItemDialogComponent } from './dialogs';
+import { AppComponent } from './app.component';
 import { MueLoginComponent } from './components';
 import { MueListComponent } from './components';
+import { MueToolbarComponent } from './components';
 
 import { ListService } from './services';
 
@@ -26,8 +27,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { appRoutes } from './app.routes';
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
-
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDYm_INLLwSPRQmZ2jEsDdSLRX6o2vNU1g',
@@ -44,7 +43,7 @@ const firebaseConfig = {
     MueAddItemDialogComponent,
     MueLoginComponent,
     MueListComponent,
-    ToolbarComponent
+    MueToolbarComponent
   ],
   imports: [
     MatButtonModule,
