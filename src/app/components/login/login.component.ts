@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'mue-login',
@@ -15,12 +16,14 @@ export class MueLoginComponent implements OnInit {
   public password: string;
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    public router: Router
   ) { }
 
   ngOnInit() { }
 
   login() {
     this.authService.emailLogin(this.mail, this.password);
+    this.router.navigate(['list']);
   }
 }
