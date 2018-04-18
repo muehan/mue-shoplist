@@ -14,6 +14,7 @@ export class MueLoginComponent implements OnInit {
 
   public mail: string;
   public password: string;
+  public errorMessage: string;
 
   constructor(
     private authService: AuthService,
@@ -33,7 +34,13 @@ export class MueLoginComponent implements OnInit {
 
   login() {
     localStorage.setItem('mail', this.mail);
-    this.authService.emailLogin(this.mail, this.password);
-    this.router.navigate(['list']);
+    this.authService.emailLogin(this.mail, this.password)
+      .then((_) => {
+        this.router.navigate(['list']);
+      })
+      .catch((error) => {
+        this.errorMessage = error;
+      });
+
   }
 }

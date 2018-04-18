@@ -22,12 +22,15 @@ export class AuthService {
     return this.authState !== null;
   }
 
-  public emailLogin(email: string, password: string) {
-    this.firebaseAuth.auth.signInWithEmailAndPassword(email, password)
+  public emailLogin(email: string, password: string): Promise<any> {
+    return this.firebaseAuth.auth.signInWithEmailAndPassword(email, password)
       .then((user) => {
         console.log(user);
         this.authState = user;
       })
-      .catch(error => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        throw error;
+      });
   }
 }

@@ -1,9 +1,9 @@
-<form class="login-form">
+<form class="login-form" (ngSubmit)="login()">
   <mat-form-field class="input-width">
     <input type="text" matInput placeholder="email" [(ngModel)]="mail" name="newitem">
   </mat-form-field>
   <mat-form-field class="input-width">
     <input type="password" matInput placeholder="password" [(ngModel)]="password" name="newitem">
   </mat-form-field>
-  <button type="submit" class="add-button" mat-raised-button (click)="login()">Login</button>
+  <button type="submit" class="add-button" mat-raised-button>Login</button>
 </form>
