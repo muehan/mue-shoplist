@@ -11,6 +11,8 @@ import { MueListComponent } from './components';
 import { MueToolbarComponent } from './components';
 
 import { ListService } from './services';
+import { AuthService } from './services';
+import { AuthGuardService } from './services';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -74,7 +76,9 @@ const firebaseConfig = {
   ],
   providers: [
     AngularFireDatabase,
-    ListService
+    ListService,
+    AuthService,
+    AuthGuardService,
   ],
   bootstrap: [AppComponent]
 })

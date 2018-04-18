@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services';
 
 @Component({
   selector: 'mue-login',
@@ -11,13 +12,15 @@ import { Component, OnInit } from '@angular/core';
 export class MueLoginComponent implements OnInit {
 
   public mail: string;
-  public pw: string;
+  public password: string;
 
-  constructor() { }
+  constructor(
+    private authService: AuthService
+  ) { }
 
   ngOnInit() { }
 
   login() {
-
+    this.authService.emailLogin(this.mail, this.password);
   }
 }
