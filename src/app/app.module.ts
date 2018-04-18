@@ -16,6 +16,7 @@ import { AuthGuardService } from './services';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 import {
   MatButtonModule,
@@ -76,6 +77,7 @@ const firebaseConfig = {
   ],
   providers: [
     AngularFireDatabase,
+    AngularFireAuth,
     ListService,
     AuthService,
     AuthGuardService,
