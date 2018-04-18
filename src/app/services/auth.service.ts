@@ -15,7 +15,7 @@ export class AuthService {
       if (user) {
         this.authState = user;
       }
-    });
+    }).unsubscribe();
   }
 
   public get authenticated(): boolean {
