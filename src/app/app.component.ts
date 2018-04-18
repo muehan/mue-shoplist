@@ -14,12 +14,9 @@ import { ListService } from './services';
 
 export class AppComponent implements OnInit {
 
-  constructor(
-    private listService: ListService) { }
+  constructor( ) { }
 
   ngOnInit(): void { }
 
-  removeChecked() {
-    this.listService.RemoveCheckedItems();
-  }
+
 }
