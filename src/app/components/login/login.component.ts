@@ -21,6 +21,10 @@ export class MueLoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if (this.authService.authenticated) {
+      this.router.navigate(['list']);
+    }
+
     let storedMail = localStorage.getItem('mail');
     if (storedMail) {
       this.mail = storedMail;

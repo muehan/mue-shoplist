@@ -17,7 +17,7 @@ export class AuthService {
   }
 
   public emailLogin(email: string, password: string) {
-    return this.firebaseAuth.auth.signInWithEmailAndPassword(email, password)
+    this.firebaseAuth.auth.signInWithEmailAndPassword(email, password)
       .then((user) => {
         this.authState = user;
       })
