@@ -30,6 +30,7 @@ export class MueLoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.authService.authenticated);
     if (this.authService.authenticated) {
       this.router.navigate(['list']);
     }

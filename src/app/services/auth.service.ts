@@ -12,10 +12,8 @@ export class AuthService {
     private firebase: AngularFireDatabase,
   ) {
     this.firebaseAuth.authState.subscribe(user => {
-      if (user) {
-        this.authState = user;
-      }
-    }).unsubscribe();
+      this.authState = user;
+    });
   }
 
   public get authenticated(): boolean {
@@ -25,7 +23,6 @@ export class AuthService {
   public emailLogin(email: string, password: string): Promise<any> {
     return this.firebaseAuth.auth.signInWithEmailAndPassword(email, password)
       .then((user) => {
-        console.log(user);
         this.authState = user;
       })
       .catch((error) => {
