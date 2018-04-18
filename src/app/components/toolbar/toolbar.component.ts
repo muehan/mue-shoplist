@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ListService } from '../../services';
+import { ListService, AuthService } from '../../services';
 
 @Component({
   selector: 'mue-toolbar',
@@ -10,10 +10,15 @@ import { ListService } from '../../services';
 export class MueToolbarComponent {
 
   constructor(
-    private listService: ListService
+    private listService: ListService,
+    private authService: AuthService,
   ) { }
 
   removeChecked() {
     this.listService.RemoveCheckedItems();
+  }
+
+  get isAuthenticated(): boolean {
+    return this.authService.authenticated;
   }
 }

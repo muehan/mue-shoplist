@@ -4,5 +4,5 @@
   <!-- This fills the remaining space of the current row -->
   <span class="example-fill-remaining-space"></span>
 
-  <button type="button" class="clear-button" (click)="removeChecked()" mat-raised-button>clear</button>
+  <button *ngIf="isAuthenticated" type="button" class="clear-button" (click)="removeChecked()" mat-raised-button>clear</button>
 </mat-toolbar>
