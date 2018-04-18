@@ -10,7 +10,13 @@ export class AuthService {
   constructor(
     private firebaseAuth: AngularFireAuth,
     private firebase: AngularFireDatabase,
-  ) { }
+  ) {
+    this.firebaseAuth.authState.subscribe(user => {
+      if (user) {
+        this.authState = user;
+      }
+    });
+  }
 
   public get authenticated(): boolean {
     return this.authState !== null;
