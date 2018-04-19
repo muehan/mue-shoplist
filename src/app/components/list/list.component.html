@@ -7,7 +7,7 @@
         *ngFor="let item of items$ | async"
         (click)="selectedItem(item)"
         [selected]="item.checked"
-        [checkboxPosition]="before">
+        checkboxPosition="before">
             {{ item.value }}
     </mat-list-option>
 </mat-selection-list>
