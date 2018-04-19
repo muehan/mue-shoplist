@@ -3,6 +3,16 @@
     right: 20px;
     bottom: 20px;
     z-index: 1000;
+    width: 66px;
+    height: 66px;
+}
+
+.clear-button {
+  position: fixed;
+  right: 20px;
+  bottom: 90px;
+  z-index: 1000;
+  background-color: red;
 }
 
 .list {

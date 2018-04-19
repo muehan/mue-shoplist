@@ -14,5 +14,7 @@ export class MueToolbarComponent {
     private authService: AuthService,
   ) { }
 
-
+  get isAuthenticated(): boolean {
+    return this.authService.authenticated;
+  }
 }
