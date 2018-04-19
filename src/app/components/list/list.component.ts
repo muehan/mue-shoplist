@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MueAddItemDialogComponent } from '../../dialogs';
-import { ListService } from '../../services';
+import { ListService, AuthService } from '../../services';
 import { Observable } from 'rxjs/Observable';
 import { ShoppingItem } from '../../models';
 
@@ -17,8 +17,13 @@ export class MueListComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private listService: ListService
+    private listService: ListService,
+    private authService: AuthService,
   ) { }
+
+  get isAuthenticated(): boolean {
+    return this.authService.authenticated;
+  }
 
   ngOnInit() {
     this.items$ = this.listService.getAll();
@@ -34,5 +39,9 @@ export class MueListComponent implements OnInit {
   selectedItem(item) {
     item.checked === true ? item.checked = false : item.checked = true;
     this.listService.update(item);
+  }
+
+  removeChecked() {
+    this.listService.removeCheckedItems();
   }
 }
