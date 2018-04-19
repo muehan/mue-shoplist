@@ -19,21 +19,33 @@ export class ListService {
     this.items$.subscribe(x => this.itemArray = x);
   }
 
-  public GetAll(): Observable<ShoppingItem[]> {
-    return this.items$;
+  public getAll(): Observable<ShoppingItem[]> {
+    return this.items$.map(x => x.sort((a, b) => {
+        return a.orderPosition < b.orderPosition ? 1 : -1;
+      }
+    ));
   }
 
-  public Add(newItem: Partial<ShoppingItem>): any {
+  public add(newItem: Partial<ShoppingItem>): any {
+    newItem.orderPosition = this.getnextOrderPosition();
     this.firebase.list('items').push(newItem);
   }
 
-  public Update(item: ShoppingItem) {
+  public update(item: ShoppingItem) {
     let key = item.$key;
     delete item.$key;
     this.firebase.list('items').update(key, item);
   }
 
-  public RemoveCheckedItems() {
+  public removeCheckedItems() {
     this.itemArray.filter(x => x.checked).forEach(item => this.firebase.list('items').remove(item.$key));
+  }
+
+  private getnextOrderPosition(): number {
+    let highestNumber = Math.max(...this.itemArray.map(x => x.orderPosition));
+    if (!highestNumber) {
+      return 1;
+    }
+    return highestNumber + 1;
   }
 }

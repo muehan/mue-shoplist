@@ -21,18 +21,18 @@ export class MueListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.items$ = this.listService.GetAll();
+    this.items$ = this.listService.getAll();
   }
 
   AddNewItem() {
     let dialogRef = this.dialog.open(MueAddItemDialogComponent);
     dialogRef.afterClosed().subscribe(result => {
-      this.listService.Add({ value: result, checked: false });
+      this.listService.add({ value: result, checked: false });
     });
   }
 
   selectedItem(item) {
     item.checked === true ? item.checked = false : item.checked = true;
-    this.listService.Update(item);
+    this.listService.update(item);
   }
 }

@@ -15,7 +15,7 @@ export class MueToolbarComponent {
   ) { }
 
   removeChecked() {
-    this.listService.RemoveCheckedItems();
+    this.listService.removeCheckedItems();
   }
 
   get isAuthenticated(): boolean {
