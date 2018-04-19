@@ -21,8 +21,8 @@ export class ListService {
 
   public getAll(): Observable<ShoppingItem[]> {
     return this.items$.map(x => x.sort((a, b) => {
-        return a.orderPosition < b.orderPosition ? -1 : 1;
-      }
+      return a.orderPosition < b.orderPosition ? -1 : 1;
+    }
     ));
   }
 
@@ -43,7 +43,10 @@ export class ListService {
 
   private getnextOrderPosition(): number {
     let highestNumber = Math.max(...this.itemArray.map(x => x.orderPosition));
-    if (!highestNumber) {
+    console.log(highestNumber);
+    if (highestNumber >= 0 ||
+        highestNumber === Number.NEGATIVE_INFINITY ||
+        highestNumber === Number.POSITIVE_INFINITY) {
       return 1;
     }
     return highestNumber + 1;
