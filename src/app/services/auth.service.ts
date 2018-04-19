@@ -14,14 +14,11 @@ export class AuthService {
   constructor(
     private firebaseAuth: AngularFireAuth,
     private firebase: AngularFireDatabase,
-    // private router: Router,
   ) {
     this.firebaseAuth.authState.subscribe(user => {
+      console.log('auth returns with ' + user);
       this.authState = user;
       this.isLoading$.next(false);
-      // if (this.authState) {
-      //   this.router.navigate(['list']);
-      // }
     });
   }
 
