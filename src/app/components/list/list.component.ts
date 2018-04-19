@@ -18,12 +18,7 @@ export class MueListComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private listService: ListService,
-    private authService: AuthService,
   ) { }
-
-  get isAuthenticated(): boolean {
-    return this.authService.authenticated;
-  }
 
   ngOnInit() {
     this.items$ = this.listService.getAll();

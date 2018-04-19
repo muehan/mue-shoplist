@@ -1,5 +1,5 @@
 <button type="button" class="add-button" mat-fab (click)="AddNewItem()">Add</button>
-<button *ngIf="isAuthenticated" type="button" class="clear-button" (click)="removeChecked()" mat-fab>clear</button>
+<button type="button" class="clear-button" (click)="removeChecked()" mat-fab>clear</button>
 
 <mat-selection-list #itemList class="list">
     <mat-list-option
