@@ -20,6 +20,8 @@ export class AuthService {
       this.authState = user;
       this.isLoading$.next(false);
     });
+
+    this.isLoading$.subscribe(x => console.log(x));
   }
 
   public get loading$(): Observable<Boolean> {
