@@ -43,7 +43,6 @@ export class ListService {
 
   private getnextOrderPosition(): number {
     let highestNumber = Math.max(...this.itemArray.map(x => x.orderPosition));
-    console.log(highestNumber);
     if (highestNumber >= 0 ||
         highestNumber === Number.NEGATIVE_INFINITY ||
         highestNumber === Number.POSITIVE_INFINITY) {
