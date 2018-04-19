@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
+import { filter } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
+import { Observable } from 'rxjs/Observable';
+
 
 @Component({
   selector: 'mue-login',
@@ -23,18 +28,21 @@ export class MueLoginComponent implements OnInit {
     public router: Router
   ) {
     let storedMail = localStorage.getItem('mail');
-    console.log(storedMail);
+
     if (storedMail || storedMail !== undefined) {
       this.mailFormControl.setValue(storedMail);
     }
+
+    this.authService.loading$.subscribe((value) => {
+      if (!value) {
+        if (this.authService.authenticated) {
+          this.router.navigate(['list']);
+        }
+      }
+    });
   }
 
-  ngOnInit() {
-    console.log(this.authService.authenticated);
-    if (this.authService.authenticated) {
-      this.router.navigate(['list']);
-    }
-  }
+  ngOnInit() { }
 
   login() {
     localStorage.setItem('mail', this.mailFormControl.value);

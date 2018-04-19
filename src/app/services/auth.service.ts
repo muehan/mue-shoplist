@@ -4,11 +4,12 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
+import * as firebase from 'firebase/app';
 
 @Injectable()
 export class AuthService {
 
-  private authState: any = null;
+  private authState: firebase.User = null;
   private isLoading$: BehaviorSubject<Boolean> = new BehaviorSubject<Boolean>(true);
 
   constructor(
@@ -16,7 +17,6 @@ export class AuthService {
     private firebase: AngularFireDatabase,
   ) {
     this.firebaseAuth.authState.subscribe(user => {
-      console.log('auth returns with ' + user);
       this.authState = user;
       this.isLoading$.next(false);
     });
@@ -39,5 +39,10 @@ export class AuthService {
         console.log(error);
         throw error;
       });
+  }
+
+  public logout(){
+    this.isLoading$.next(true);
+    this.firebaseAuth.auth.signOut();
   }
 }

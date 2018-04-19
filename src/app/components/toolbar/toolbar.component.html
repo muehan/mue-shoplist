@@ -4,5 +4,5 @@
     <!-- This fills the remaining space of the current row -->
     <span class="example-fill-remaining-space"></span>
 
-    <button *ngIf="isAuthenticated" type="button" class="clear-button" [routerLink]="['profile']" mat-raised-button>profil</button>
+    <mat-icon *ngIf="isAuthenticated" [routerLink]="['profile']" class="example-icon">person</mat-icon>
 </mat-toolbar>
