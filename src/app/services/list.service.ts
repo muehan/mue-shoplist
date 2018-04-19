@@ -21,7 +21,7 @@ export class ListService {
 
   public getAll(): Observable<ShoppingItem[]> {
     return this.items$.map(x => x.sort((a, b) => {
-        return a.orderPosition < b.orderPosition ? 1 : -1;
+        return a.orderPosition < b.orderPosition ? -1 : 1;
       }
     ));
   }
