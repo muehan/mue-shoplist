@@ -3,8 +3,6 @@ import { MatDialog } from '@angular/material';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 
-import { ListService } from './services';
-
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'app-root',

@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
 import { Router, CanActivate } from '@angular/router';
+import { filter } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
 
   constructor(
-    public authService: AuthService,
-    public router: Router) { }
+    public authService: AuthService
+  ) { }
 
-  canActivate(): boolean {
-    if (!this.authService.authenticated) {
-      this.router.navigate(['login']);
-      return false;
-    }
-    return true;
+  canActivate(): Observable<boolean> {
+    return this.authService.loading$.pipe(
+      filter((status) => status === false),
+      switchMap(() => Observable.of(this.authService.authenticated))
+    );
   }
 }
