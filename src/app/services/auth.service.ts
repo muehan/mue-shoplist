@@ -17,6 +17,7 @@ export class AuthService {
     private firebase: AngularFireDatabase,
   ) {
     this.firebaseAuth.authState.subscribe(user => {
+      console.log(user);
       this.authState = user;
       this.isLoading$.next(false);
     });
