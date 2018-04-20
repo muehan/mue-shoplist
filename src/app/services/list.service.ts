@@ -17,6 +17,7 @@ export class ListService {
     });
 
     this.items$.subscribe(x => this.itemArray = x);
+
   }
 
   public getAll(): Observable<ShoppingItem[]> {
