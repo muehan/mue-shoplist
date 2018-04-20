@@ -14,7 +14,6 @@ export class AuthService {
 
   constructor(
     private firebaseAuth: AngularFireAuth,
-    private firebase: AngularFireDatabase,
   ) {
     this.firebaseAuth.authState.subscribe(user => {
       console.log('userstate changed: ' + user);
@@ -37,7 +36,8 @@ export class AuthService {
     return this.firebaseAuth.auth.signInWithEmailAndPassword(email, password)
       .then((user) => {
         console.log('loggin in: ' + user);
-        this.authState = user;
+        // no longer needed when authState subscription is running
+        // this.authState = user;
       })
       .catch((error) => {
         console.log(error);
