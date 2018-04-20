@@ -17,7 +17,7 @@ export class AuthService {
     private firebase: AngularFireDatabase,
   ) {
     this.firebaseAuth.authState.subscribe(user => {
-      console.log('user: ' + user);
+      console.log('userstate changed: ' + user);
       this.authState = user;
       this.isLoading$.next(false);
     });
@@ -36,6 +36,7 @@ export class AuthService {
   public emailLogin(email: string, password: string): Promise<any> {
     return this.firebaseAuth.auth.signInWithEmailAndPassword(email, password)
       .then((user) => {
+        console.log('loggin in: ' + user);
         this.authState = user;
       })
       .catch((error) => {
