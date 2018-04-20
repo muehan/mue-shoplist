@@ -44,7 +44,8 @@ export class AuthService {
       });
   }
 
-  public logout(){
+  public logout() {
+    console.log('LOGOUT');
     this.isLoading$.next(true);
     this.firebaseAuth.auth.signOut();
   }
