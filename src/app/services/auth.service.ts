@@ -17,7 +17,9 @@ export class AuthService {
   ) {
     this.firebaseAuth.authState.subscribe(user => {
       console.log('userstate changed: ' + user);
-      this.authState = user;
+      if (user) {
+        this.authState = user;
+      }
       this.isLoading$.next(false);
     });
 
@@ -49,5 +51,6 @@ export class AuthService {
     console.log('LOGOUT');
     this.isLoading$.next(true);
     this.firebaseAuth.auth.signOut();
+    this.authState = null;
   }
 }
