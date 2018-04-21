@@ -16,7 +16,6 @@ export class AuthService {
     private firebaseAuth: AngularFireAuth,
   ) {
     this.firebaseAuth.authState.subscribe(user => {
-      console.log('userstate changed: ' + user);
       if (user) {
         this.authState = user;
       }
@@ -34,12 +33,13 @@ export class AuthService {
     return this.authState !== null;
   }
 
+  public get currentUser() {
+    return firebase.auth().currentUser;
+  }
+
   public emailLogin(email: string, password: string): Promise<any> {
     return this.firebaseAuth.auth.signInWithEmailAndPassword(email, password)
       .then((user) => {
-        console.log('loggin in: ' + user);
-        // no longer needed when authState subscription is running
-        // this.authState = user;
       })
       .catch((error) => {
         console.log(error);
@@ -48,9 +48,22 @@ export class AuthService {
   }
 
   public logout() {
-    console.log('LOGOUT');
     this.isLoading$.next(true);
     this.firebaseAuth.auth.signOut();
     this.authState = null;
+  }
+
+  public resetPassword(newPassword: string, oldPassword: string): Promise<any> {
+    return this.reautenticate(oldPassword)
+          .then((_) => this.authState.updatePassword(newPassword));
+  }
+
+  private reautenticate(oldPassword: string): Promise<any> {
+    let credential = firebase.auth.EmailAuthProvider.credential(
+      this.currentUser.email,
+      oldPassword
+    );
+
+    return this.authState.reauthenticateWithCredential(credential);
   }
 }
