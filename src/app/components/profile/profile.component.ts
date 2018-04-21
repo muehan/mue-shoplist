@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services';
+import { AuthService, ListService } from '../../services';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,12 +12,14 @@ export class MueProfileComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private listService: ListService,
     private router: Router,
   ) { }
 
   ngOnInit() { }
 
   public logout(): void {
+    this.listService.unSubscribe();
     this.authService.logout();
     this.router.navigate(["login"]);
   }

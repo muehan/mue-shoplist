@@ -21,6 +21,7 @@ export class MueListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.listService.initialize();
     this.items$ = this.listService.getAll();
   }
 
