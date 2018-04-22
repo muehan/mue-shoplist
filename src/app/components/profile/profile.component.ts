@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService, ListService } from '../../services';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { MueResetPasswordDialogComponent } from '../../dialogs';
+// import { MueResetPasswordDialogComponent } from '../../dialogs';
 
 @Component({
   selector: 'mue-profile',
@@ -28,9 +28,7 @@ export class MueProfileComponent implements OnInit {
   }
 
   public changePassword(): void {
-    let dialogRef = this.dialog.open(MueResetPasswordDialogComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      
-    });
+    // let dialogRef = this.dialog.open(MueResetPasswordDialogComponent);
+    // dialogRef.afterClosed().subscribe(result => { });
   }
 }
