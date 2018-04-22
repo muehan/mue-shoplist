@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MueAddItemDialogComponent } from './dialogs';
+import { MueResetPasswordDialogComponent } from './dialogs';
 import { AppComponent } from './app.component';
 import { MueLoginComponent } from './components';
 import { MueListComponent } from './components';
@@ -49,7 +50,8 @@ const firebaseConfig = {
     MueLoginComponent,
     MueListComponent,
     MueToolbarComponent,
-    MueProfileComponent
+    MueProfileComponent,
+    MueResetPasswordDialogComponent,
   ],
   imports: [
     MatButtonModule,
@@ -78,6 +80,7 @@ const firebaseConfig = {
   ],
   entryComponents: [
     MueAddItemDialogComponent,
+    MueResetPasswordDialogComponent,
   ],
   providers: [
     AngularFireDatabase,
