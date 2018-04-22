@@ -26,9 +26,9 @@ export class MueResetPasswordDialogComponent implements OnInit {
   public submit() {
     if (this.newPassword) {
       this.authService
-        .resetPassword(this.newPassword, this.oldPassword)
-        .then((_) => this.dialogRef.close())
-        .catch(error => this.errorMessage = error);
+        // .resetPassword(this.newPassword, this.oldPassword)
+        // .then((_) => this.dialogRef.close())
+        // .catch(error => this.errorMessage = error);
     } else {
       this.errorMessage = "no password defined";
     }

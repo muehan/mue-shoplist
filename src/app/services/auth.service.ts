@@ -33,9 +33,9 @@ export class AuthService {
     return this.authState !== null;
   }
 
-  public get currentUser() {
-    return firebase.auth().currentUser;
-  }
+  // public get currentUser() {
+  //   return ;
+  // }
 
   public emailLogin(email: string, password: string): Promise<any> {
     return this.firebaseAuth.auth.signInWithEmailAndPassword(email, password)
@@ -53,17 +53,17 @@ export class AuthService {
     this.authState = null;
   }
 
-  public resetPassword(newPassword: string, oldPassword: string): Promise<any> {
-    return this.reautenticate(oldPassword)
-          .then((_) => this.authState.updatePassword(newPassword));
-  }
+  // public resetPassword(newPassword: string, oldPassword: string): Promise<any> {
+  //   return this.reautenticate(oldPassword)
+  //         .then((_) => this.authState.updatePassword(newPassword));
+  // }
 
-  private reautenticate(oldPassword: string): Promise<any> {
-    let credential = firebase.auth.EmailAuthProvider.credential(
-      this.currentUser.email,
-      oldPassword
-    );
+  // private reautenticate(oldPassword: string): Promise<any> {
+  //   let credential = firebase.auth.EmailAuthProvider.credential(
+  //     this.currentUser.email,
+  //     oldPassword
+  //   );
 
-    return this.authState.reauthenticateWithCredential(credential);
-  }
+  //   return this.authState.reauthenticateWithCredential(credential);
+  // }
 }
