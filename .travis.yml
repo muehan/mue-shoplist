@@ -7,6 +7,6 @@ branches:
 before_script:
 - npm install
 script:
-- ng build --prod
+- ng build
 after_success:
   - firebase deploy --token $FIREBASE_TOKEN --non-interactive
