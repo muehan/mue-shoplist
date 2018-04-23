@@ -34,6 +34,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { appRoutes } from './app.routes';
 import { environment } from '../environments/environment';
+import { FreezerComponent } from './components/freezer/freezer.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { environment } from '../environments/environment';
     MueToolbarComponent,
     MueProfileComponent,
     MueResetPasswordDialogComponent,
+    FreezerComponent,
   ],
   imports: [
     MatButtonModule,
