@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "mue-shoplist"
+    "production": "mue-shoplist",
+    "development": "mue-shoplist-dev"
   }
 }
