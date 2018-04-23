@@ -1,2 +1,2 @@
 export * from './add-item';
-// export * from './reset-password';
+export * from './reset-password';
