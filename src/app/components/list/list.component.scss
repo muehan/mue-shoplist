@@ -7,12 +7,16 @@
     height: 66px;
 }
 
+.freezer-button {
+    display: inline;
+}
+
 .clear-button {
-  position: fixed;
-  right: 20px;
-  bottom: 90px;
-  z-index: 1000;
-  background-color: red;
+    position: fixed;
+    right: 20px;
+    bottom: 90px;
+    z-index: 1000;
+    background-color: red;
 }
 
 .list {
