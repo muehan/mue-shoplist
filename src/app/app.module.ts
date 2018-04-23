@@ -34,6 +34,17 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { appRoutes } from './app.routes';
 
+// prod
+// const firebaseConfig = {
+//   apiKey: 'AIzaSyDYm_INLLwSPRQmZ2jEsDdSLRX6o2vNU1g',
+//   authDomain: 'mue-shoplist.firebaseapp.com',
+//   databaseURL: 'https://mue-shoplist.firebaseio.com',
+//   projectId: 'mue-shoplist',
+//   storageBucket: 'mue-shoplist.appspot.com',
+//   messagingSenderId: '689727068064'
+// };
+
+// dev
 const firebaseConfig = {
   apiKey: 'AIzaSyD-iPjvdENaVgGX0XeVFmPJxjsHYjSdzJ4',
   authDomain: 'mue-shoplist-dev.firebaseapp.com',
@@ -80,7 +91,7 @@ const firebaseConfig = {
   ],
   entryComponents: [
     MueAddItemDialogComponent,
-    // MueResetPasswordDialogComponent,
+    MueResetPasswordDialogComponent,
   ],
   providers: [
     AngularFireDatabase,
