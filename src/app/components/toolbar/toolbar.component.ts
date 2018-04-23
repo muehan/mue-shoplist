@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ListService, AuthService } from '../../services';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'mue-toolbar',
@@ -14,7 +15,15 @@ export class MueToolbarComponent {
     private authService: AuthService,
   ) { }
 
-  get isAuthenticated(): boolean {
+  public get isAuthenticated(): boolean {
     return this.authService.authenticated;
+  }
+
+  public get environment(): string {
+    return environment.production ? 'Prod' : 'Dev';
+  }
+
+  public get version(): string {
+    return environment.version;
   }
 }
