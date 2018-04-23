@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FreezerService } from '../../services';
 
 @Component({
   selector: 'app-freezer',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FreezerComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private freezerService: FreezerService
+  ) { }
 
   ngOnInit() {
   }

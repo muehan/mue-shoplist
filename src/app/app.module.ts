@@ -12,10 +12,12 @@ import { MueLoginComponent } from './components';
 import { MueListComponent } from './components';
 import { MueToolbarComponent } from './components';
 import { MueProfileComponent } from './components';
+import { FreezerComponent } from './components';
 
-import { ListService } from './services';
 import { AuthService } from './services';
 import { AuthGuardService } from './services';
+import { FreezerService } from './services';
+import { ListService } from './services';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -34,7 +36,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { appRoutes } from './app.routes';
 import { environment } from '../environments/environment';
-import { FreezerComponent } from './components/freezer/freezer.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { FreezerComponent } from './components/freezer/freezer.component';
     ListService,
     AuthService,
     AuthGuardService,
+    FreezerService,
   ],
   bootstrap: [AppComponent]
 })
