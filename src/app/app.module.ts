@@ -12,7 +12,7 @@ import { MueLoginComponent } from './components';
 import { MueListComponent } from './components';
 import { MueToolbarComponent } from './components';
 import { MueProfileComponent } from './components';
-import { FreezerComponent } from './components';
+import { MueFreezerComponent } from './components';
 
 import { AuthService } from './services';
 import { AuthGuardService } from './services';
@@ -46,7 +46,7 @@ import { environment } from '../environments/environment';
     MueToolbarComponent,
     MueProfileComponent,
     MueResetPasswordDialogComponent,
-    FreezerComponent,
+    MueFreezerComponent,
   ],
   imports: [
     MatButtonModule,

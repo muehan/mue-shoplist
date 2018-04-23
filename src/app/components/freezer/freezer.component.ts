@@ -1,18 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { FreezerService } from '../../services';
+import { Observable } from 'rxjs/Observable';
+import { FreezerItem } from '../../models';
 
 @Component({
-  selector: 'app-freezer',
+  selector: 'mue-freezer',
   templateUrl: './freezer.component.html',
   styleUrls: ['./freezer.component.scss']
 })
-export class FreezerComponent implements OnInit {
+
+export class MueFreezerComponent implements OnInit {
+
+  public items$: Observable<FreezerItem[]>;
 
   constructor(
     private freezerService: FreezerService
   ) { }
 
   ngOnInit() {
+    this.freezerService.initialize();
+    this.items$ = this.freezerService.getAll();
   }
 
 }
