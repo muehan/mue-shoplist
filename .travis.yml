@@ -8,10 +8,7 @@ branches:
 before_script:
 - npm install
 script:
-- ng build --prod --aot=false
-  if: branch = master
-script:
-- ng build
-  if: branch = development
+- if [ "$TRAVIS_BRANCH" = "master" ]; then ng build --prod --aot=false; fi
+- if [ "$TRAVIS_BRANCH" = "development" ]; then ng build; fi
 after_success:
   - firebase deploy --token $FIREBASE_TOKEN --non-interactive
