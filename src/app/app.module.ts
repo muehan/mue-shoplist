@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MueAddItemDialogComponent } from './dialogs';
-// import { MueResetPasswordDialogComponent } from './dialogs';
+import { MueResetPasswordDialogComponent } from './dialogs';
 import { AppComponent } from './app.component';
 import { MueLoginComponent } from './components';
 import { MueListComponent } from './components';
@@ -34,6 +34,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { appRoutes } from './app.routes';
 
+// prod
 const firebaseConfig = {
   apiKey: 'AIzaSyDYm_INLLwSPRQmZ2jEsDdSLRX6o2vNU1g',
   authDomain: 'mue-shoplist.firebaseapp.com',
@@ -43,6 +44,16 @@ const firebaseConfig = {
   messagingSenderId: '689727068064'
 };
 
+// dev
+// const firebaseConfig = {
+//   apiKey: 'AIzaSyD-iPjvdENaVgGX0XeVFmPJxjsHYjSdzJ4',
+//   authDomain: 'mue-shoplist-dev.firebaseapp.com',
+//   databaseURL: 'https://mue-shoplist-dev.firebaseio.com',
+//   projectId: 'mue-shoplist-dev',
+//   storageBucket: 'mue-shoplist-dev.appspot.com',
+//   messagingSenderId: '510563882803'
+// };
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +62,7 @@ const firebaseConfig = {
     MueListComponent,
     MueToolbarComponent,
     MueProfileComponent,
-    // MueResetPasswordDialogComponent,
+    MueResetPasswordDialogComponent,
   ],
   imports: [
     MatButtonModule,
@@ -80,7 +91,7 @@ const firebaseConfig = {
   ],
   entryComponents: [
     MueAddItemDialogComponent,
-    // MueResetPasswordDialogComponent,
+    MueResetPasswordDialogComponent,
   ],
   providers: [
     AngularFireDatabase,

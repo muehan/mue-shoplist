@@ -32,7 +32,9 @@ export class ListService {
   }
 
   public unSubscribe() {
-    this.itemsSubscription.unsubscribe();
+    if (this.itemsSubscription) {
+      this.itemsSubscription.unsubscribe();
+    }
   }
 
   public getAll(): Observable<ShoppingItem[]> {
