@@ -8,5 +8,9 @@ before_script:
 - npm install
 script:
 - ng build --prod --aot=false
+  if: branch = master
+script:
+- ng build
+  if: branch = development
 after_success:
   - firebase deploy --token $FIREBASE_TOKEN --non-interactive
