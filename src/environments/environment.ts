@@ -4,5 +4,13 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: 'AIzaSyD-iPjvdENaVgGX0XeVFmPJxjsHYjSdzJ4',
+    authDomain: 'mue-shoplist-dev.firebaseapp.com',
+    databaseURL: 'https://mue-shoplist-dev.firebaseio.com',
+    projectId: 'mue-shoplist-dev',
+    storageBucket: 'mue-shoplist-dev.appspot.com',
+    messagingSenderId: '510563882803'
+  }
 };

@@ -33,26 +33,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { appRoutes } from './app.routes';
-
-// prod
-const firebaseConfig = {
-  apiKey: 'AIzaSyDYm_INLLwSPRQmZ2jEsDdSLRX6o2vNU1g',
-  authDomain: 'mue-shoplist.firebaseapp.com',
-  databaseURL: 'https://mue-shoplist.firebaseio.com',
-  projectId: 'mue-shoplist',
-  storageBucket: 'mue-shoplist.appspot.com',
-  messagingSenderId: '689727068064'
-};
-
-// dev
-// const firebaseConfig = {
-//   apiKey: 'AIzaSyD-iPjvdENaVgGX0XeVFmPJxjsHYjSdzJ4',
-//   authDomain: 'mue-shoplist-dev.firebaseapp.com',
-//   databaseURL: 'https://mue-shoplist-dev.firebaseio.com',
-//   projectId: 'mue-shoplist-dev',
-//   storageBucket: 'mue-shoplist-dev.appspot.com',
-//   messagingSenderId: '510563882803'
-// };
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -77,7 +58,7 @@ const firebaseConfig = {
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     RouterModule.forRoot(appRoutes),
   ],
   exports: [
