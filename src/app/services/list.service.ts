@@ -66,7 +66,7 @@ export class ListService {
     this.firebase
       .list('items')
       .remove(item.$key)
-      .then(_ => console.log('item deleted');
+      .then(_ => console.log('item deleted'));
   }
 
   private getnextOrderPosition(): number {
