@@ -3,17 +3,7 @@
   "name": "Mühle Shoping List",
   "icons": [
     {
-      "src": "assets/favicons/favicon-16x16.png",
-      "type": "image/png",
-      "sizes": "48x48"
-    },
-    {
-      "src": "assets/favicons/favicon-16x16.png",
-      "type": "image/png",
-      "sizes": "96x96"
-    },
-    {
-      "src": "assets/favicons/favicon-16x16.png",
+      "src": "assets/favicons/android-chrome-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     }
