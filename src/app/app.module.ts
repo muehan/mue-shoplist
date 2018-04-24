@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { MueAddItemDialogComponent } from './dialogs';
 import { MueResetPasswordDialogComponent } from './dialogs';
@@ -63,6 +64,7 @@ import { environment } from '../environments/environment';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     RouterModule.forRoot(appRoutes),
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
   ],
   exports: [
     MatButtonModule,
