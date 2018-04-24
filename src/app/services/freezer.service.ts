@@ -45,13 +45,13 @@ export class FreezerService {
 
   public add(newItem: Partial<FreezerItem>): any {
     newItem.orderPosition = this.getnextOrderPosition();
-    this.firebase.list('items').push(newItem);
+    this.firebase.list('freezer').push(newItem);
   }
 
   public update(item: FreezerItem) {
     let key = item.$key;
     delete item.$key;
-    this.firebase.list('items').update(key, item);
+    this.firebase.list('freezer').update(key, item);
   }
 
   private getnextOrderPosition(): number {

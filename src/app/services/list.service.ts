@@ -56,10 +56,17 @@ export class ListService {
 
   public removeCheckedItems() {
     this.itemArray
-        .filter(x => x.checked)
-        .forEach(item => this.firebase
-                             .list('items')
-                             .remove(item.$key));
+      .filter(x => x.checked)
+      .forEach(item => this.firebase
+        .list('items')
+        .remove(item.$key));
+  }
+
+  remove(item: ShoppingItem) {
+    this.firebase
+      .list('items')
+      .remove(item.$key)
+      .then(_ => console.log('item deleted');
   }
 
   private getnextOrderPosition(): number {

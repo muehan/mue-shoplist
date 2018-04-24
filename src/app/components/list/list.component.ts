@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MueAddItemDialogComponent } from '../../dialogs';
-import { ListService, AuthService } from '../../services';
+import { ListService, AuthService, FreezerService } from '../../services';
 import { Observable } from 'rxjs/Observable';
 import { ShoppingItem } from '../../models';
 
@@ -18,10 +18,12 @@ export class MueListComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private listService: ListService,
+    private freezerService: FreezerService,
   ) { }
 
   ngOnInit() {
     this.listService.initialize();
+    this.freezerService.initialize();
     this.items$ = this.listService.getAll();
   }
 
@@ -39,5 +41,10 @@ export class MueListComponent implements OnInit {
 
   removeChecked() {
     this.listService.removeCheckedItems();
+  }
+
+  public moveToFreezer(item: ShoppingItem) {
+    this.freezerService.add({ value: item.value });
+    this.listService.remove(item);
   }
 }

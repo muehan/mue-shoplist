@@ -9,6 +9,11 @@
 
 .freezer-button {
     display: inline;
+    float: right;
+}
+
+.mat-mini-fab:not([class*=mat-elevation-z]) {
+  box-shadow: none;
 }
 
 .clear-button {
@@ -26,4 +31,16 @@
 
 .list-item {
     padding-left: 0;
+}
+
+.list-item-block {
+  display: inline-block;
+}
+
+.list-item-text {
+  line-height: 48px;
+}
+
+.mat-mini-fab .mat-button-wrapper {
+  line-height: 0;
 }
