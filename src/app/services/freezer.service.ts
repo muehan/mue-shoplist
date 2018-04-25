@@ -54,6 +54,13 @@ export class FreezerService {
     this.firebase.list('freezer').update(key, item);
   }
 
+  remove(item: FreezerItem) {
+    this.firebase
+      .list('freezer')
+      .remove(item.$key)
+      .then(_ => console.log('item deleted'));
+  }
+
   private getnextOrderPosition(): number {
     let highestNumber = Math.max(...this.itemArray.map(x => x.orderPosition));
     if (highestNumber >= 0 ||

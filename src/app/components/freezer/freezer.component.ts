@@ -22,4 +22,7 @@ export class MueFreezerComponent implements OnInit {
     this.items$ = this.freezerService.getAll();
   }
 
+  public delete(item: FreezerItem): void {
+    this.freezerService.remove(item);
+  }
 }
