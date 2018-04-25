@@ -2,7 +2,6 @@ export const environment = {
   production: false,
   test: true,
   envName: 'test',
-  version: '1.0.1',
   firebaseConfig: {
     apiKey: 'AIzaSyD-iPjvdENaVgGX0XeVFmPJxjsHYjSdzJ4',
     authDomain: 'mue-shoplist-dev.firebaseapp.com',
