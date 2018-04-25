@@ -30,7 +30,8 @@ import {
   MatListModule,
   MatMenuModule,
   MatIconModule,
-  MatCardModule
+  MatCardModule,
+  MatCheckboxModule,
 } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -57,6 +58,7 @@ import { environment } from '../environments/environment';
     MatIconModule,
     MatCardModule,
     MatInputModule,
+    MatCheckboxModule,
     MatDialogModule,
     BrowserModule,
     BrowserAnimationsModule,

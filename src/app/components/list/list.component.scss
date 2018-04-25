@@ -35,10 +35,12 @@
 
 .list-item-block {
   display: inline-block;
+  width: 100%;
 }
 
 .list-item-text {
   line-height: 48px;
+  margin-left: 8px;
 }
 
 .mat-mini-fab .mat-button-wrapper {
