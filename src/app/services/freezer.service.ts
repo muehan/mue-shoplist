@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { ShoppingItem } from '../models';
+import { FreezerItem } from '../models';
 import { AngularFireDatabase } from 'angularfire2/database/database';
 import { AuthService } from './auth.service';
 import { filter } from 'rxjs/operators/filter';
@@ -9,10 +9,10 @@ import { tap } from 'rxjs/operators/tap';
 import { Subscription } from 'rxjs/Subscription';
 
 @Injectable()
-export class ListService {
+export class FreezerService {
 
-  private items$: Observable<ShoppingItem[]>;
-  private itemArray: Array<ShoppingItem>;
+  private items$: Observable<FreezerItem[]>;
+  private itemArray: Array<FreezerItem>;
   private initialized: Boolean = false;
   private itemsSubscription: Subscription;
 
@@ -24,7 +24,7 @@ export class ListService {
   }
 
   public initialize() {
-    this.items$ = this.firebase.list<ShoppingItem>('items').snapshotChanges().map(changes => {
+    this.items$ = this.firebase.list<FreezerItem>('freezer').snapshotChanges().map(changes => {
       return changes.map(c => ({ $key: c.payload.key, ...c.payload.val() }));
     });
     this.itemsSubscription = this.items$.subscribe(x => this.itemArray = x);
@@ -37,34 +37,26 @@ export class ListService {
     }
   }
 
-  public getAll(): Observable<ShoppingItem[]> {
+  public getAll(): Observable<FreezerItem[]> {
     return this.items$.map(x => x.sort((a, b) => {
       return a.orderPosition < b.orderPosition ? -1 : 1;
     }));
   }
 
-  public add(newItem: Partial<ShoppingItem>): any {
+  public add(newItem: Partial<FreezerItem>): any {
     newItem.orderPosition = this.getnextOrderPosition();
-    this.firebase.list('items').push(newItem);
+    this.firebase.list('freezer').push(newItem);
   }
 
-  public update(item: ShoppingItem) {
+  public update(item: FreezerItem) {
     let key = item.$key;
     delete item.$key;
-    this.firebase.list('items').update(key, item);
+    this.firebase.list('freezer').update(key, item);
   }
 
-  public removeCheckedItems() {
-    this.itemArray
-      .filter(x => x.checked)
-      .forEach(item => this.firebase
-        .list('items')
-        .remove(item.$key));
-  }
-
-  remove(item: ShoppingItem) {
+  remove(item: FreezerItem) {
     this.firebase
-      .list('items')
+      .list('freezer')
       .remove(item.$key)
       .then(_ => console.log('item deleted'));
   }

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { MueAddItemDialogComponent } from './dialogs';
 import { MueResetPasswordDialogComponent } from './dialogs';
@@ -12,10 +13,12 @@ import { MueLoginComponent } from './components';
 import { MueListComponent } from './components';
 import { MueToolbarComponent } from './components';
 import { MueProfileComponent } from './components';
+import { MueFreezerComponent } from './components';
 
-import { ListService } from './services';
 import { AuthService } from './services';
 import { AuthGuardService } from './services';
+import { FreezerService } from './services';
+import { ListService } from './services';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -27,7 +30,8 @@ import {
   MatListModule,
   MatMenuModule,
   MatIconModule,
-  MatCardModule
+  MatCardModule,
+  MatCheckboxModule,
 } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -44,6 +48,7 @@ import { environment } from '../environments/environment';
     MueToolbarComponent,
     MueProfileComponent,
     MueResetPasswordDialogComponent,
+    MueFreezerComponent,
   ],
   imports: [
     MatButtonModule,
@@ -53,6 +58,7 @@ import { environment } from '../environments/environment';
     MatIconModule,
     MatCardModule,
     MatInputModule,
+    MatCheckboxModule,
     MatDialogModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -60,6 +66,7 @@ import { environment } from '../environments/environment';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     RouterModule.forRoot(appRoutes),
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production || environment.test })
   ],
   exports: [
     MatButtonModule,
@@ -80,6 +87,7 @@ import { environment } from '../environments/environment';
     ListService,
     AuthService,
     AuthGuardService,
+    FreezerService,
   ],
   bootstrap: [AppComponent]
 })
