@@ -8,6 +8,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { MueAddItemDialogComponent } from './dialogs';
 import { MueResetPasswordDialogComponent } from './dialogs';
+import { AddFreezerItemDialogComponent } from './dialogs';
 import { AppComponent } from './app.component';
 import { MueLoginComponent } from './components';
 import { MueListComponent } from './components';
@@ -49,6 +50,7 @@ import { environment } from '../environments/environment';
     MueProfileComponent,
     MueResetPasswordDialogComponent,
     MueFreezerComponent,
+    AddFreezerItemDialogComponent,
   ],
   imports: [
     MatButtonModule,
