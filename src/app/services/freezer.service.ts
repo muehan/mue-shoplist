@@ -63,7 +63,7 @@ export class FreezerService {
 
   private getnextOrderPosition(): number {
     let highestNumber = Math.max(...this.itemArray.map(x => x.orderPosition));
-    if (highestNumber >= 0 ||
+    if (highestNumber <= 0 ||
       highestNumber === Number.NEGATIVE_INFINITY ||
       highestNumber === Number.POSITIVE_INFINITY) {
       return 1;
