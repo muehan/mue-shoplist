@@ -5,9 +5,13 @@
         <div class="list-item-block">
             <span class="list-item-text" *ngIf="item.amount">{{ item.amount }} | </span>
             <span class="list-item-text">{{ item.value }}</span>
+
             <button type="button" class="delete-button" (click)="delete(item)" color="primary" mat-icon-button>
-        <mat-icon>delete</mat-icon>
-      </button>
+                <mat-icon>delete</mat-icon>
+            </button>
+            <button type="button" class="edit-button" (click)="edit(item)" color="primary" mat-icon-button>
+                <mat-icon>mode_edit</mat-icon>
+            </button>
         </div>
     </mat-list-item>
 </mat-list>

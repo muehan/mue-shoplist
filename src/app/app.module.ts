@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { MueAddItemDialogComponent } from './dialogs';
 import { MueResetPasswordDialogComponent } from './dialogs';
 import { MueAddFreezerItemDialogComponent } from './dialogs';
+import { MueEditFreezerItemDialogComponent } from './dialogs';
 import { MueLoginComponent } from './components';
 import { MueListComponent } from './components';
 import { MueToolbarComponent } from './components';
@@ -51,6 +52,7 @@ import { environment } from '../environments/environment';
     MueResetPasswordDialogComponent,
     MueFreezerComponent,
     MueAddFreezerItemDialogComponent,
+    MueEditFreezerItemDialogComponent,
   ],
   imports: [
     MatButtonModule,
@@ -83,6 +85,7 @@ import { environment } from '../environments/environment';
     MueAddItemDialogComponent,
     MueResetPasswordDialogComponent,
     MueAddFreezerItemDialogComponent,
+    MueEditFreezerItemDialogComponent,
   ],
   providers: [
     AngularFireDatabase,

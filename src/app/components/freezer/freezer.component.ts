@@ -3,7 +3,7 @@ import { FreezerService } from '../../services';
 import { Observable } from 'rxjs/Observable';
 import { FreezerItem } from '../../models';
 import { MatDialog } from '@angular/material/dialog';
-import { MueAddFreezerItemDialogComponent } from '../../dialogs';
+import { MueAddFreezerItemDialogComponent, MueEditFreezerItemDialogComponent } from '../../dialogs';
 
 @Component({
   selector: 'mue-freezer',
@@ -29,13 +29,36 @@ export class MueFreezerComponent implements OnInit {
     this.freezerService.remove(item);
   }
 
+  public edit(item: FreezerItem): void {
+    let dialogRef = this.dialog.open(MueEditFreezerItemDialogComponent, {
+      data: {
+        item: item
+      }
+    });
+
+    dialogRef
+      .afterClosed()
+      .subscribe(
+        result => {
+          item.amount = result.amount;
+          item.value = result.name;
+          this.freezerService
+            .update(item);
+      });
+  }
+
   AddNewItem() {
     let dialogRef = this.dialog.open(MueAddFreezerItemDialogComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      this.freezerService.add(
-        { value: result.name,
-          amount: result.amount }
-      );
+    dialogRef
+      .afterClosed()
+      .subscribe(
+        result => {
+        this.freezerService
+          .add(
+          {
+            value: result.name,
+            amount: result.amount
+          });
     });
   }
 }
