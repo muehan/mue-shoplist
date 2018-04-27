@@ -6,10 +6,10 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
+import { AppComponent } from './app.component';
 import { MueAddItemDialogComponent } from './dialogs';
 import { MueResetPasswordDialogComponent } from './dialogs';
-import { AddFreezerItemDialogComponent } from './dialogs';
-import { AppComponent } from './app.component';
+import { MueAddFreezerItemDialogComponent } from './dialogs';
 import { MueLoginComponent } from './components';
 import { MueListComponent } from './components';
 import { MueToolbarComponent } from './components';
@@ -50,7 +50,7 @@ import { environment } from '../environments/environment';
     MueProfileComponent,
     MueResetPasswordDialogComponent,
     MueFreezerComponent,
-    AddFreezerItemDialogComponent,
+    MueAddFreezerItemDialogComponent,
   ],
   imports: [
     MatButtonModule,
@@ -82,6 +82,7 @@ import { environment } from '../environments/environment';
   entryComponents: [
     MueAddItemDialogComponent,
     MueResetPasswordDialogComponent,
+    MueAddFreezerItemDialogComponent,
   ],
   providers: [
     AngularFireDatabase,

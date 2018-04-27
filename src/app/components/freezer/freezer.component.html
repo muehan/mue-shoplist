@@ -1,10 +1,13 @@
+<button type="button" class="add-button" mat-fab (click)="AddNewItem()">Add</button>
+
 <mat-list>
-  <mat-list-item *ngFor="let item of items$ | async">
-    <div class="list-item-block">
-        <span class="list-item-text">{{ item.value }}</span>
-      <button type="button" class="delete-button" (click)="delete(item)" color="primary" mat-icon-button>
+    <mat-list-item *ngFor="let item of items$ | async">
+        <div class="list-item-block">
+            <span class="list-item-text" *ngIf="item.amount">{{ item.amount }} | </span>
+            <span class="list-item-text">{{ item.value }}</span>
+            <button type="button" class="delete-button" (click)="delete(item)" color="primary" mat-icon-button>
         <mat-icon>delete</mat-icon>
       </button>
-    </div>
-  </mat-list-item>
+        </div>
+    </mat-list-item>
 </mat-list>

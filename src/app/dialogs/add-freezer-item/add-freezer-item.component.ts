@@ -7,13 +7,13 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./add-freezer-item.component.scss']
 })
 
-export class AddFreezerItemDialogComponent implements OnInit {
+export class MueAddFreezerItemDialogComponent implements OnInit {
 
-  private name: string;
-  private amount: string;
+  public name: string;
+  public amount: string;
 
   constructor(
-    public dialogRef: MatDialogRef<AddFreezerItemDialogComponent>
+    public dialogRef: MatDialogRef<MueAddFreezerItemDialogComponent>
   ) { }
 
   ngOnInit() {
