@@ -24,9 +24,11 @@ export class ListService {
   }
 
   public initialize() {
-    this.items$ = this.firebase.list<ShoppingItem>('items').snapshotChanges().map(changes => {
-      return changes.map(c => ({ $key: c.payload.key, ...c.payload.val() }));
-    });
+    this.items$ = this.firebase
+                        .list<ShoppingItem>('items')
+                        .snapshotChanges()
+                        .map(changes => changes.map(c => ({ $key: c.payload.key, ...c.payload.val() })))
+                        .map(x => x.sort(compareFn));
     this.itemsSubscription = this.items$.subscribe(x => this.itemArray = x);
     this.initialized = true;
   }
@@ -39,6 +41,8 @@ export class ListService {
 
   public getAll(): Observable<ShoppingItem[]> {
     return this.items$.map(x => x.sort((a, b) => {
+      // console.log(a.orderPosition);
+      // console.log(b.orderPosition);
       return a.orderPosition < b.orderPosition ? -1 : 1;
     }));
   }
@@ -71,7 +75,8 @@ export class ListService {
 
   private getnextOrderPosition(): number {
     let highestNumber = Math.max(...this.itemArray.map(x => x.orderPosition));
-    if (highestNumber >= 0 ||
+    console.log(highestNumber);
+    if (highestNumber <= 0 ||
       highestNumber === Number.NEGATIVE_INFINITY ||
       highestNumber === Number.POSITIVE_INFINITY) {
       return 1;
@@ -79,3 +84,13 @@ export class ListService {
     return highestNumber + 1;
   }
 }
+
+const compareFn = (a, b) => {
+  if (a.orderPosition < b.orderPosition) {
+    return -1;
+  }
+  if (a.orderPosition > b.orderPosition) {
+    return 1;
+  }
+  return 0;
+};
