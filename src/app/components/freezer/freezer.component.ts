@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { FreezerItem } from '../../models';
 import { MatDialog } from '@angular/material/dialog';
 import { MueAddFreezerItemDialogComponent, MueEditFreezerItemDialogComponent } from '../../dialogs';
+import { MueFreezerItemDetailsDialogComponent } from '../../dialogs/index';
 
 @Component({
   selector: 'mue-freezer',
@@ -29,6 +30,14 @@ export class MueFreezerComponent implements OnInit {
     this.freezerService.remove(item);
   }
 
+  public showDetails (item: FreezerItem) {
+    let dialogRef = this.dialog.open(MueFreezerItemDetailsDialogComponent, {
+      data: {
+        item: item
+      }
+    });
+  }
+
   public edit(item: FreezerItem): void {
     let dialogRef = this.dialog.open(MueEditFreezerItemDialogComponent, {
       data: {
@@ -42,6 +51,7 @@ export class MueFreezerComponent implements OnInit {
         result => {
           item.amount = result.amount;
           item.value = result.name;
+          item  .place = result.place;
           this.freezerService
             .update(item);
       });

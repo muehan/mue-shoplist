@@ -11,6 +11,7 @@ export class MueEditFreezerItemDialogComponent implements OnInit {
 
   public name: string;
   public amount: string;
+  public place: string;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -20,12 +21,15 @@ export class MueEditFreezerItemDialogComponent implements OnInit {
   ngOnInit() {
     this.name = this.data.item.value;
     this.amount = this.data.item.amount;
+    this.place = this.data.item.place;
   }
 
   public close() {
     this.dialogRef
     .close(
-      { name: this.name, amount: this.amount }
+      { name: this.name,
+        amount: this.amount,
+        place: this.place }
     );
   }
 }
