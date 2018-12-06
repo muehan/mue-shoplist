@@ -1,9 +1,11 @@
 <mat-toolbar class="app-toolbar">
-    <span [routerLink]="['list']">Ichaufslischte</span>
+    <span [routerLink]="['list']">Shopy</span>
     <span class="toolbar-version">V:{{version}} {{environment}}</span>
 
     <!-- This fills the remaining space of the current row -->
     <span class="example-fill-remaining-space"></span>
 
+    <mat-icon *ngIf="isAuthenticated" [routerLink]="['list']" class="example-icon">list</mat-icon>
+    <mat-icon *ngIf="isAuthenticated" [routerLink]="['freezer']" class="example-icon">ac_unit</mat-icon>
     <mat-icon *ngIf="isAuthenticated" [routerLink]="['profile']" class="example-icon">person</mat-icon>
 </mat-toolbar>

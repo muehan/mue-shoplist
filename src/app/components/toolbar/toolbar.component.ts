@@ -20,7 +20,7 @@ export class MueToolbarComponent {
   }
 
   public get environment(): string {
-    return environment.production ? 'Prod' : 'Dev';
+    return environment.envName;
   }
 
   public get version(): string {
